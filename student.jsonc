@@ -1,0 +1,44 @@
+{// i can comment ahah
+    "interested_tag": [
+        "tag1",
+        "tag2"
+    ],
+    "wish_list": [
+        {
+            "type": "class",
+            "progarm_id": 123123,
+            "progarm_name": "somename"
+        },
+        {
+            "type": "course",
+            "progarm_id": 123123,
+            "progarm_name": "somename"
+        }
+    ],
+    "own_progarm": [
+        {
+            "type": "class",
+            "progarm_id": 123123,
+            "progarm_name": "somename"
+        },
+        {
+            "type": "course",
+            "progarm_id": 123123,
+            "progarm_name": "somename"
+        }
+    ],
+    "basket": [
+        {
+            "type": "class",
+            "progarm_id": 123123,
+            "progarm_name": "somename",
+            "price": 6900
+        },
+        {
+            "type": "course",
+            "progarm_id": 123123,
+            "progarm_name": "somename",
+            "price": 6900
+        }
+    ]
+}
