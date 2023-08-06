@@ -1,7 +1,7 @@
 {
     "tag": ["sometag","tag2"],
     "open_time": {
-        "0 //monday": [
+        "0": [//monday
             {
                 "start": "//sometime",
                 "stop": "//sometime"
