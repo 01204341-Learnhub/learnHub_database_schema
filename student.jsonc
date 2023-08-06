@@ -6,51 +6,35 @@
     "wish_list": [
         {
             "type": "class",
-            "progarm_id": 123123,
-            "progarm_name": "somename"
+            "progarm_id": 123123
+    
         },
         {
             "type": "course",
-            "progarm_id": 123123,
-            "progarm_name": "somename"
+            "progarm_id": 123123
+  
         }
     ],
-    "own_course": [
+    "own_progarm": [
         {
             "type": "course",
-            "course_id": 123123,
-            "course_name": "somename"
-        },
-        {
-            "type": "course",
-            "progarm_id": 123123,
-            "progarm_name": "somename"
-        }
-    ],
-    "own_class": [
-        {
-            "type": "class",
-            "class_id": 123123,
-            "class_name": "somename"
+            "progarm_id": 123123
         },
         {
             "type": "class",
-            "class_id": 123123,
-            "class_name": "somename"
+            "progarm_id": 123123
         }
     ],
     "basket": [
         {
             "type": "class",
-            "progarm_id": 123123,
-            "progarm_name": "somename",
-            "price": 6900
+            "progarm_id": 123123
+            
         },
         {
             "type": "course",
-            "progarm_id": 123123,
-            "progarm_name": "somename",
-            "price": 6900
+            "progarm_id": 123123
+            
         }
     ]
 }
