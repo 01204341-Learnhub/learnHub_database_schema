@@ -15,16 +15,28 @@
             "progarm_name": "somename"
         }
     ],
-    "own_progarm": [
+    "own_course": [
         {
-            "type": "class",
-            "progarm_id": 123123,
-            "progarm_name": "somename"
+            "type": "course",
+            "course_id": 123123,
+            "course_name": "somename"
         },
         {
             "type": "course",
             "progarm_id": 123123,
             "progarm_name": "somename"
+        }
+    ],
+    "own_class": [
+        {
+            "type": "class",
+            "class_id": 123123,
+            "class_name": "somename"
+        },
+        {
+            "type": "class",
+            "class_id": 123123,
+            "class_name": "somename"
         }
     ],
     "basket": [
