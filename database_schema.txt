@@ -1,0 +1,245 @@
+Table student {
+    __ __
+    interested_tag array_of_string
+    owned_progarms  array_of_owned_progarm_item // progarm that is  owned by this student
+    wishlist array_of_wish_item
+    basket array_of_basket_item
+    payment_method what // what
+ }
+
+Table teacher {
+    __ __
+    owned_progarms  array_of_owned_progarm_item // progarm that is owned by this teacher
+
+ }
+
+ Table course {
+    course_id int
+    name string
+    quick_description string // short description under course name 
+    description string // long description in md?
+    created_date datetime
+    course_pic string_URL
+    tag array_of_string
+    student_count int
+    teachers array_of_teacher_id // may include name
+    rating int // average review score of this course
+    review_count int 
+    price int // of a course in baht
+    
+    chapters array_of_pre_chapter
+
+ }
+
+  Table class {
+    class_id int
+    name string
+    quick_description string // short description under class name 
+    description string // long description
+    created_date datetime
+    class_pic string_URL
+    tag array_of_string
+    student_count int
+    max_student int
+    open_time something
+    teachers array_of_teacher_id // may include name
+    price int // of a course in baht
+ }
+
+  Table chapters {
+    chapter_id int
+    course_id int
+    chapter_name string
+    chapter_num int
+    lessons array_of_lesson
+    
+
+ }
+ Table pre_chapter {
+    __ __
+    chapter_id int
+
+ }
+ Table pre_quiz {
+    quiz_id int
+    
+ }
+  Table quiz {
+    quiz_id int
+    quiz_struct quiz_struct
+
+ }
+
+  Table progress { // not done yet
+    id int
+    student_id int
+    progarm_id int // class or course id determine by type
+    type string // course and class
+    is_finish boolean
+    and_more_for_course more // look like course+chapter+lesson
+ }
+ Table post {
+    id int
+    class_id int
+    attachments array_of_attached_file
+    comments array_of_comment
+ }
+  Table attached_file {
+    __ __
+    attachment_type_type string
+    src string
+ }
+Table attached_file2 {
+    __ __
+    attachment_type_type string
+    src string
+ }
+ Table assignment {
+    id int
+    class_id int
+    assignment_name string
+    description string
+    created_date datetime
+    due_date datetime
+    attachments array_of_attached_file
+
+ }
+
+Table basket_item {
+    __ __
+    basket_item_id int
+    progarm_id int // class_id or course_id
+    type string // class or course
+   
+ }
+ Table transaction {
+    id int
+    user_id int //buyer
+    purchase_time datetime
+    total_price float
+    purchase_list array_of_purchase_item
+ }
+ Table purchase_item {
+  __ __
+  progarm_id int // class or course id determine by type
+  type string // class or course
+  price int
+}
+ Table review {
+    id int
+    course_id int
+    score int
+    description string
+ }
+ Table comment {
+  __ __
+  id int
+  user_id int // writer
+  created_date datetime
+  description string
+}
+Table owned_progarm_item {
+  __ __
+  progarm_id int // class or course id determine by type
+  type string // class or course
+}
+
+Table user {
+  id int // _id in mongo
+  username string
+  password string
+  email string
+  type string // student or teacher
+  first_name string
+  last_name string
+  proflie_pic string_URL // user profile picture
+  config something // not final
+}
+Table wishlist_item {
+  __ __
+  wishlist_item_id int
+  progarm_id int // class or course id determine by type
+  
+  type string // class or course
+
+  
+}
+Table announcement {
+  announcement_id int
+  course_id int // anuncement owner
+  teacher_id str // writer's teacher_id 
+  text string // announcement info text
+  attachments array_of_attached_file // file attachments
+}
+Table lesson {
+  __ __
+  lesson_id int
+  lesson_num int // for lesson ordering
+  name str // lesson name
+  description string
+  lesson_type string // video,doc,quiz
+}
+Table video {
+  __ __
+  src string
+  video_length int 
+}
+Table doc {
+  __ __
+  file_type string
+  src int
+}
+
+Table achievements {
+  __ __ // wah==
+}
+
+Ref: "course"."teachers" < "teacher"."__"
+
+Ref: "class"."class_id" < "post"."id"
+
+Ref: "class"."class_id" < "assignment"."id"
+
+Ref: "class"."teachers" < "teacher"."__"
+
+Ref: "user"."id" < "transaction"."id"
+
+Ref: "course"."course_id" < "announcement"."announcement_id"
+
+Ref: "course"."course_id" < "review"."id"
+
+Ref: "course"."course_id" < "progress"."progarm_id"
+
+Ref: "student"."__" < "progress"."id"
+
+Ref: "pre_chapter"."chapter_id" < "chapters"."chapter_id"
+
+Ref: "student"."basket" < "basket_item"."__"
+
+Ref: "student"."wishlist" < "wishlist_item"."__"
+
+Ref: "student"."owned_progarms" < "owned_progarm_item"."__"
+
+Ref: "course"."course_id" < "owned_progarm_item"."progarm_id"
+
+Ref: "class"."class_id" < "owned_progarm_item"."progarm_id"
+
+Ref: "post"."comments" < "comment"."__"
+
+Ref: "course"."chapters" < "pre_chapter"."__"
+
+Ref: "chapters"."lessons" < "lesson"."__"
+
+Ref: "transaction"."purchase_list" < "purchase_item"."__"
+
+Ref: "post"."attachments" < "attached_file"."__"
+
+Ref: "assignment"."attachments" < "attached_file"."__"
+
+Ref: "pre_quiz"."quiz_id" - "quiz"."quiz_id"
+
+
+
+Ref: "teacher"."owned_progarms" < "owned_progarm_item"."__"
+
+Ref: "announcement"."attachments" < "attached_file2"."__"
