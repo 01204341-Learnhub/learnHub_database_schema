@@ -1,5 +1,16 @@
 {
+    
+    "name":"operating system",
+    "quick_description":"operating system is operating system",
+    "description":"OS have kernel",
+    "created_date": "Mongo_Date()",
+    "course_pic": "www.test.com",
     "tag": ["sometag","tag2"],
-    "chapter":[{}]/////not done
+    "student_count":0,
+    "teachers":[],
+    "rating":0,
+    "review_count":0,
+    "price":1000,
+    "chapter":[]
     
 }
