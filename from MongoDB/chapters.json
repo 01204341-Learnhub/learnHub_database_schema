@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "64eb1eb746a1d88ca45bd17a"
+  },
+  "chapter_name": "intro",
+  "chapter_num": 1,
+  "lessons": [
+    {
+      "lesson_id": {
+        "$oid": "64eb1fd246a1d88ca45bd17b"
+      },
+      "lesson_num": 1,
+      "name": "intro to os video",
+      "description": "somesomesome",
+      "lesson_type": "video",
+      "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "video_length": 696996966
+    },
+    {
+      "lesson_id": {
+        "$oid": "64ec11f227fa1262130759cf"
+      },
+      "lesson_num": 2,
+      "name": "intro to os doc",
+      "description": "some intro pdf",
+      "lesson_type": "doc",
+      "file_type": "pdf",
+      "src": "https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf"
+    }
+  ]
+}]
