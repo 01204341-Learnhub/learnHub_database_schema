@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "64eb1eb746a1d88ca45bd17a"
+  },
+  "chapter_num": 1,
+  "name": "intro",
+  "course_id": {
+    "$oid": "64eaf639565900315d349e49"
+  }
+}]

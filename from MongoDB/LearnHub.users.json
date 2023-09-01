@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "username": "teacher1",
+  "password": "1q2w3e4r",
+  "email": "teacher1@ku.th",
+  "first_name": "peeba",
+  "last_name": "atbangken",
+  "profic_pic": "https://placehold.co/600x400",
+  "config": {
+    "theme": "dark"
+  },
+  "type": "teacher",
+  "owned_progarms": [
+    {
+      "progarm_id": {
+        "$oid": "64eaf639565900315d349e49"
+      },
+      "type": "course"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "username": "student1",
+  "password": "1q2w3e4r",
+  "email": "student1@ku.th",
+  "first_name": "student1",
+  "last_name": "atbangken",
+  "profic_pic": "https://placehold.co/600x400",
+  "config": {
+    "theme": "dark"
+  },
+  "type": "student",
+  "interested_tag": [
+    ""
+  ],
+  "owned_progarms": [
+    {
+      "progarm_id": {
+        "$oid": "64eaf639565900315d349e49"
+      },
+      "type": "course"
+    }
+  ],
+  "wishlist": [
+    {
+      "wishlist_item_id": {
+        "$oid": "64ec14ff27fa1262130759e1"
+      },
+      "progarm_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      },
+      "type": "course"
+    }
+  ],
+  "basket": [
+    {
+      "basket_item_id": {
+        "$oid": "64ec15b927fa1262130759e4"
+      },
+      "progarm_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      },
+      "type": "course"
+    }
+  ]
+}]
