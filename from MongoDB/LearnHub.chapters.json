@@ -6,5 +6,7 @@
   "name": "intro",
   "course_id": {
     "$oid": "64eaf639565900315d349e49"
-  }
+  },
+  "chapter_length": 900,
+  "lesson_count": 2
 }]

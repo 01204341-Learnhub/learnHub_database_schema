@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "64f838acbd8311a14de78538"
+  },
+  "student_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "course_id": {
+    "$oid": "64eaf639565900315d349e49"
+  },
+  "finished": false,
+  "lessons": [
+    {
+      "lesson_id": {
+        "$oid": "64ec4625150aba29529bb37e"
+      },
+      "chapter_id": {
+        "$oid": "64eb1eb746a1d88ca45bd17a"
+      },
+      "finished": false,
+      "video_percent_completed": 0
+    },
+    {
+      "lesson_id": {
+        "$oid": "64ec46cf150aba29529bb38a"
+      },
+      "chapter_id": {
+        "$oid": "64eb1eb746a1d88ca45bd17a"
+      },
+      "finished": false,
+      "video_percent_completed": "???????????????"
+    }
+  ],
+  "progress": 0
+}]

@@ -18,6 +18,12 @@
         "$oid": "64eaf639565900315d349e49"
       },
       "type": "course"
+    },
+    {
+      "progarm_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      },
+      "type": "course"
     }
   ]
 },
@@ -35,9 +41,6 @@
     "theme": "dark"
   },
   "type": "student",
-  "interested_tag": [
-    ""
-  ],
   "owned_progarms": [
     {
       "progarm_id": {
@@ -67,5 +70,8 @@
       },
       "type": "course"
     }
+  ],
+  "interested_tags": [
+    "computer"
   ]
 }]

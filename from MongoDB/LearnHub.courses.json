@@ -3,44 +3,60 @@
     "$oid": "64eaf639565900315d349e49"
   },
   "name": "operating system",
-  "quick_description": "operating system is operating system",
   "description": "OS have kernel",
   "created_date": {
     "$date": "2022-12-31T17:00:00.000Z"
   },
   "course_pic": "https://placehold.co/600x400",
-  "tag": [
+  "student_count": 1,
+  "rating": 0,
+  "review_count": 0,
+  "price": 1000,
+  "teacher_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "course_objective": [
+    "know about OS"
+  ],
+  "course_requirement": "know computer architecture",
+  "difficulty_level": "very hard",
+  "tags": [
     "sometag",
     "tag2"
   ],
-  "student_count": 1,
-  "teachers": [
-    {
-      "$oid": "64eb196e46a1d88ca45bd160"
-    }
-  ],
-  "rating": 0,
-  "review_count": 0,
-  "price": 1000
+  "total_video_length": 600,
+  "chapter_count": 1,
+  "file_count": 1,
+  "quiz_count": 0
 },
 {
   "_id": {
     "$oid": "64ec0e5927fa1262130759c6"
   },
   "name": "algorithm",
-  "quick_description": "algorithm is how to solve problem",
   "description": "algorithm is how to solve problem",
   "created_date": {
     "$date": "2023-01-31T17:00:00.000Z"
   },
   "course_pic": "https://placehold.co/600x400",
-  "tag": [
+  "student_count": 0,
+  "teacher_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "course_objective": [
+    "know about algorithm"
+  ],
+  "course_requirement": "know abstract data type",
+  "difficulty_level": "very hard",
+  "rating": 0,
+  "review_count": 0,
+  "price": 1000,
+  "tags": [
     "algorithm",
     "computer"
   ],
-  "student_count": 0,
-  "teachers": [],
-  "rating": 0,
-  "review_count": 0,
-  "price": 1000
+  "total_video_length": 0,
+  "chapter_count": 0,
+  "file_count": 0,
+  "quiz_count": 0
 }]

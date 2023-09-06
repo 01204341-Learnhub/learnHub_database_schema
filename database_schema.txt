@@ -1,6 +1,6 @@
 Table student {
     __ __
-    interested_tag array_of_string // array of tag in interest of this student
+    interested_tags array_of_string // array of tag in interest of this student
     owned_progarms  array_of_owned_progarm_item // might not need progarm that is  owned by this student
     wishlist array_of_wish_item // wishlist of this studednt
     basket array_of_basket_item // basket ( list of progarm to be bought) of this studednt
@@ -20,18 +20,18 @@ Table teacher {
     course_objective array_of_string
     course_requirement string
     difficulty_level string
-    tag array_of_string // course's tag
+    tags array_of_string // course's tag
     course_pic string // pic in course profile in URL may need more
     created_date date
-    total_video_length int
+    total_video_length int // insecond
     chapter_count int
-    quizz_count int
-    file_counts int
+    quiz_count int
+    file_count int
     student_count int // number of student who enroll this course
     teacher_id objectId
-    rating float // average review score of this course
+    rating double // average review score of this course
     review_count int // number of review
-    price float // of a course in baht
+    price double // of a course in baht
  }
 
   Table classes {
@@ -43,14 +43,14 @@ Table teacher {
     difficulty_level string
     tag array_of_string
     class_pic string
-    created_date datetime
+    created_date date
     student_count int
     max_student int
     open_time something
     registration_ended_date date //
     class_ended_date date // 
     teacher_id objectId // may include name
-    price float // of a course in baht
+    price double // of a course in baht
  }
 
   Table chapters {
@@ -60,7 +60,6 @@ Table teacher {
     chapter_num int // chapter number
     lesson_count int // total lesson count
     chapter_length int // expected study time of this chapter in second (video included)
-    lessons array_of_lesson_id // lessons of this chapter
     
 
  }
@@ -80,6 +79,7 @@ Table teacher {
     _id objectId
     student_id objectId
     course_id objectId //
+    progress double // total progress in percent
     finished boolean // has student finished this course
     lessons array_of_lesson_progress
  }
@@ -88,7 +88,8 @@ Table teacher {
     lesson_id objectId
     chapter_id objectId
     finished boolean //  has student finished this lessson
-    video_percent_completed float // video progress for video only
+    video_percent_completed double // video progress for video only??? why not lesson lenght completed instead
+    quiz_score int_or_double // absolute score or percent for quiz only
 
  }
 
@@ -139,8 +140,8 @@ Table basket_item {
  Table transaction {
     _id objectId
     user_id objectId //buyer
-    purchase_time datetime
-    total_price float
+    purchase_time date
+    total_price double
     purchase_list array_of_purchase_item
  }
  Table purchase_item {
@@ -159,7 +160,7 @@ Table basket_item {
   __ __
   _id objectId
   user_id objectId // writer
-  created_date datetime
+  created_date date
   description string
 }
 Table owned_progarm_item {
@@ -261,20 +262,14 @@ Ref: "assignment"."attachments" < "attached_file"."__"
 
 Ref: "pre_quiz"."quiz_id" - "quiz"."quiz_id"
 
-
-
 Ref: "teacher"."owned_progarms" < "owned_progarm_item"."__"
 
 Ref: "announcement"."attachments" < "attached_file2"."__"
 
 Ref: "users"."config" - "config"."theme"
 
-
-
 Ref: "chapters"."_id" < "lesson"."__"
 
 Ref: "courses"."_id" < "chapters"."_id"
-
-
 
 Ref: "course_progresses"."lessons" < "lesson_progress"."__"

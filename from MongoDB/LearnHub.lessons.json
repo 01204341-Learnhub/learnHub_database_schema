@@ -9,11 +9,11 @@
   "name": "intro to os video",
   "description": "somesomesome",
   "src": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-  "video_length": 696996966,
   "lesson_type": "video",
   "course_id": {
     "$oid": "64eaf639565900315d349e49"
-  }
+  },
+  "lesson_length": 600
 },
 {
   "_id": {
@@ -29,5 +29,6 @@
   "name": "intro to os doc",
   "description": "some intro pdf",
   "lesson_type": "doc",
-  "src": "https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf"
+  "src": "https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf",
+  "lesson_length": 300
 }]
