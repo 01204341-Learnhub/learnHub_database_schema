@@ -1,7 +1,7 @@
 Table student {
     __ __
     interested_tag array_of_string // array of tag in interest of this student
-    owned_progarms  array_of_owned_progarm_item // progarm that is  owned by this student
+    owned_progarms  array_of_owned_progarm_item // might not need progarm that is  owned by this student
     wishlist array_of_wish_item // wishlist of this studednt
     basket array_of_basket_item // basket ( list of progarm to be bought) of this studednt
     payment_method what // what
@@ -16,31 +16,41 @@ Table teacher {
  Table courses {
     _id objectId 
     name string // course name
-    quick_description string // short description under course name 
     description string // long description in md?
-    created_date date
-    course_pic string // pic in course profile in URL may need more
+    course_objective array_of_string
+    course_requirement string
+    difficulty_level string
     tag array_of_string // course's tag
+    course_pic string // pic in course profile in URL may need more
+    created_date date
+    total_video_length int
+    chapter_count int
+    quizz_count int
+    file_counts int
     student_count int // number of student who enroll this course
-    teachers array_of_teacher_id // may include name
-    rating int // average review score of this course
+    teacher_id objectId
+    rating float // average review score of this course
     review_count int // number of review
-    price int // of a course in baht
+    price float // of a course in baht
  }
 
   Table classes {
     _id objectId // class's id
     name string
-    quick_description string // short description under class name 
     description string // long description
-    created_date datetime
-    class_pic string
+    class_objective array_of_string // list of class_objective
+    class_requirement string
+    difficulty_level string
     tag array_of_string
+    class_pic string
+    created_date datetime
     student_count int
     max_student int
     open_time something
-    teachers array_of_teacher_id // may include name
-    price int // of a course in baht
+    registration_ended_date date //
+    class_ended_date date // 
+    teacher_id objectId // may include name
+    price float // of a course in baht
  }
 
   Table chapters {
@@ -48,6 +58,8 @@ Table teacher {
     course_id objectId
     name string // chapter's name
     chapter_num int // chapter number
+    lesson_count int // total lesson count
+    chapter_length int // expected study time of this chapter in second (video included)
     lessons array_of_lesson_id // lessons of this chapter
     
 
@@ -64,17 +76,35 @@ Table teacher {
 
  }
 
-  Table progress { // not done yet
+  Table course_progresses { // not done yet
+    _id objectId
+    student_id objectId
+    course_id objectId //
+    finished boolean // has student finished this course
+    lessons array_of_lesson_progress
+ }
+ Table lesson_progress { // not done yet
+    __ __
+    lesson_id objectId
+    chapter_id objectId
+    finished boolean //  has student finished this lessson
+    video_percent_completed float // video progress for video only
+
+ }
+
+
+   Table class_progresses { // not done yet
     _id objectId
     student_id objectId
     progarm_id objectId // class or course id determine by type
     type string // course and class
-    is_finish boolean
+    finished boolean
     and_more_for_course more // look like course+chapter+lesson
  }
  Table post {
     _id objectId
     class_id int
+    text string
     attachments array_of_attached_file
     comments array_of_comment
  }
@@ -91,7 +121,7 @@ Table attached_file2 {
  Table assignment {
     _id objectId
     class_id objectId
-    assignment_name string
+    name string
     description string
     created_date date
     due_date date
@@ -110,7 +140,7 @@ Table basket_item {
     _id objectId
     user_id objectId //buyer
     purchase_time datetime
-    total_price int
+    total_price float
     purchase_list array_of_purchase_item
  }
  Table purchase_item {
@@ -178,15 +208,14 @@ Table lesson {
   name string // lesson name
   description string
   lesson_type string // video,doc,quiz
+  lesson_length int // expected study time of this lesson in second (video included)
 }
 Table video {
   __ __
   src string // URL of the file
-  video_length int // in second
 }
 Table doc {
   __ __
-  file_type string // pdf docx png or more
   src string // URL of the file
 }
 
@@ -194,13 +223,13 @@ Table achievements {
   __ __ // wah==
 }
 
-Ref: "courses"."teachers" < "teacher"."__"
+Ref: "courses"."teacher_id" < "teacher"."__"
 
 Ref: "classes"."_id" < "post"."_id"
 
 Ref: "classes"."_id" < "assignment"."_id"
 
-Ref: "classes"."teachers" < "teacher"."__"
+Ref: "classes"."teacher_id" < "teacher"."__"
 
 Ref: "users"."_id" < "transaction"."_id"
 
@@ -208,9 +237,9 @@ Ref: "courses"."_id" < "announcement"."_id"
 
 Ref: "courses"."_id" < "review"."_id"
 
-Ref: "courses"."_id" < "progress"."progarm_id"
 
-Ref: "student"."__" < "progress"."_id"
+
+
 
 Ref: "student"."basket" < "basket_item"."__"
 
@@ -232,12 +261,20 @@ Ref: "assignment"."attachments" < "attached_file"."__"
 
 Ref: "pre_quiz"."quiz_id" - "quiz"."quiz_id"
 
+
+
 Ref: "teacher"."owned_progarms" < "owned_progarm_item"."__"
 
 Ref: "announcement"."attachments" < "attached_file2"."__"
 
 Ref: "users"."config" - "config"."theme"
 
+
+
 Ref: "chapters"."_id" < "lesson"."__"
 
 Ref: "courses"."_id" < "chapters"."_id"
+
+
+
+Ref: "course_progresses"."lessons" < "lesson_progress"."__"
