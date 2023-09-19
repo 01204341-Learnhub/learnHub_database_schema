@@ -20,10 +20,10 @@ Table teacher {
     course_objective array_of_string
     course_requirement string
     difficulty_level string
-    tags array_of_string // course's tag
+    tags array_of_objectId // course's tag in array of tag_id
     course_pic string // pic in course profile in URL may need more
     created_date date
-    total_video_length int // insecond
+    total_video_length int // in second
     chapter_count int
     quiz_count int
     file_count int
@@ -32,6 +32,7 @@ Table teacher {
     rating double // average review score of this course
     review_count int // number of review
     price double // of a course in baht
+    status string // finished | not started | started | private
  }
 
   Table classes {
@@ -41,22 +42,27 @@ Table teacher {
     class_objective array_of_string // list of class_objective
     class_requirement string
     difficulty_level string
-    tag array_of_string
+    tags array_of_objectId // class's tag in array of tag_id
     class_pic string
     created_date date
     student_count int
     max_student int
+    assignment_count int
+    meeting_count int
+    chapter_count int
     open_time something
-    registration_ended_date date //
-    class_ended_date date // 
+    registration_ended_date date // can't register beyond this date
+    class_ended_date date // the day class end and no more teaching
     teacher_id objectId // may include name
     price double // of a course in baht
+    status string // finished | not started | started | private
  }
 
   Table chapters {
     _id objectId // chapter's id
     course_id objectId
     name string // chapter's name
+    description string
     chapter_num int // chapter number
     lesson_count int // total lesson count
     chapter_length int // expected study time of this chapter in second (video included)
@@ -88,7 +94,7 @@ Table teacher {
     lesson_id objectId
     chapter_id objectId
     finished boolean //  has student finished this lessson
-    video_percent_completed double // video progress for video only??? why not lesson lenght completed instead
+    lesson_completed int //  lesson lenght completed in second
     quiz_score int_or_double // absolute score or percent for quiz only
 
  }
@@ -104,10 +110,13 @@ Table teacher {
  }
  Table post {
     _id objectId
-    class_id int
+    class_id objectId
+    teacher_id objectId // writer
+    name string
     text string
-    attachments array_of_attached_file
+    last_edit date
     comments array_of_comment
+    attachments array_of_attached_file
  }
   Table attached_file {
     __ __
@@ -148,7 +157,7 @@ Table basket_item {
   __ __
   progarm_id objectId // class or course id determine by type
   type string // class or course
-  price int
+  price double
 }
  Table review {
     _id objectId
@@ -174,8 +183,7 @@ Table users {
   username string
   password string
   email string
-  first_name string
-  last_name string
+  full_name string
   proflie_pic string // user profile picture in URL
   config object(config) // user's configuration
   type string // student or teacher
@@ -197,6 +205,8 @@ Table announcement {
   _id objectId
   course_id objectId // anuncement owner
   teacher_id objectId // writer's teacher_id 
+  last_edit date
+  name str
   text string // announcement info text
   attachments array_of_attached_file // file attachments
 }
@@ -222,6 +232,11 @@ Table doc {
 
 Table achievements {
   __ __ // wah==
+}
+Table tags {
+  __ __
+  _id objectId
+  name string
 }
 
 Ref: "courses"."teacher_id" < "teacher"."__"
@@ -273,3 +288,5 @@ Ref: "chapters"."_id" < "lesson"."__"
 Ref: "courses"."_id" < "chapters"."_id"
 
 Ref: "course_progresses"."lessons" < "lesson_progress"."__"
+
+Ref: "student"."__" < "course_progresses"."_id"
