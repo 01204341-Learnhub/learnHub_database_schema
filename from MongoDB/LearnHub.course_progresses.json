@@ -18,7 +18,7 @@
         "$oid": "64eb1eb746a1d88ca45bd17a"
       },
       "finished": false,
-      "video_percent_completed": 0
+      "lesson_completed": 0
     },
     {
       "lesson_id": {
@@ -28,7 +28,7 @@
         "$oid": "64eb1eb746a1d88ca45bd17a"
       },
       "finished": false,
-      "video_percent_completed": "???????????????"
+      "lesson_completed": 0
     }
   ],
   "progress": 0

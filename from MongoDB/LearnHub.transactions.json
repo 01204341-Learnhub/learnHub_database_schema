@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "650af72dae18fbe3d31ab8f4"
+  },
+  "user_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "purchase_time": {
+    "$date": "2023-01-01T17:00:00.000Z"
+  },
+  "total_price": 1000,
+  "purchase_list": [
+    {
+      "progarm_id": {
+        "$oid": "64eaf639565900315d349e49"
+      },
+      "type": "course",
+      "price": 1000
+    }
+  ]
+}]

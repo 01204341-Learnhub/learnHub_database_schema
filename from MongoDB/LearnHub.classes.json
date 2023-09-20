@@ -1,0 +1,44 @@
+[{
+  "_id": {
+    "$oid": "650af343ae18fbe3d31ab8eb"
+  },
+  "name": "python",
+  "description": "this class teach progarming in python",
+  "created_date": {
+    "$date": "2022-12-31T17:00:00.000Z"
+  },
+  "class_pic": "https://placehold.co/600x400",
+  "student_count": 0,
+  "max_student": 69,
+  "rating": 0,
+  "review_count": 0,
+  "price": 1000,
+  "teacher_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "class_objective": [
+    "can use python to edit pdf",
+    "can use python to emulate computer"
+  ],
+  "class_requirement": "can use computer",
+  "difficulty_level": "very hard",
+  "tags": [
+    {
+      "$oid": "650af5a1ae18fbe3d31ab8ef"
+    },
+    {
+      "$oid": "650af5b5ae18fbe3d31ab8f0"
+    }
+  ],
+  "assignment_count": 0,
+  "meeting_count": 0,
+  "chapter_count": 0,
+  "open_time": "something",
+  "registration_ended_date": {
+    "$date": "2024-06-27T17:00:00.000Z"
+  },
+  "class_ended_date": {
+    "$date": "2024-10-27T17:00:00.000Z"
+  },
+  "status": "started"
+}]

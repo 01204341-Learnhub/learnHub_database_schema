@@ -21,13 +21,18 @@
   "course_requirement": "know computer architecture",
   "difficulty_level": "very hard",
   "tags": [
-    "sometag",
-    "tag2"
+    {
+      "$oid": "6509b76eda50b4eec1867261"
+    },
+    {
+      "$oid": "6509b79bda50b4eec1867265"
+    }
   ],
   "total_video_length": 600,
   "chapter_count": 1,
   "file_count": 1,
-  "quiz_count": 0
+  "quiz_count": 0,
+  "status": "started"
 },
 {
   "_id": {
@@ -52,11 +57,16 @@
   "review_count": 0,
   "price": 1000,
   "tags": [
-    "algorithm",
-    "computer"
+    {
+      "$oid": "6509b76eda50b4eec1867261"
+    },
+    {
+      "$oid": "6509b7bbda50b4eec1867266"
+    }
   ],
   "total_video_length": 0,
   "chapter_count": 0,
   "file_count": 0,
-  "quiz_count": 0
+  "quiz_count": 0,
+  "status": "started"
 }]

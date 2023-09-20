@@ -5,9 +5,6 @@
   "username": "teacher1",
   "password": "1q2w3e4r",
   "email": "teacher1@ku.th",
-  "first_name": "peeba",
-  "last_name": "atbangken",
-  "profic_pic": "https://placehold.co/600x400",
   "config": {
     "theme": "dark"
   },
@@ -24,8 +21,16 @@
         "$oid": "64ec0e5927fa1262130759c6"
       },
       "type": "course"
+    },
+    {
+      "progarm_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      },
+      "type": "class"
     }
-  ]
+  ],
+  "profile_pic": "https://placehold.co/600x400",
+  "fullname": "peeba atbangken"
 },
 {
   "_id": {
@@ -34,9 +39,6 @@
   "username": "student1",
   "password": "1q2w3e4r",
   "email": "student1@ku.th",
-  "first_name": "student1",
-  "last_name": "atbangken",
-  "profic_pic": "https://placehold.co/600x400",
   "config": {
     "theme": "dark"
   },
@@ -73,5 +75,7 @@
   ],
   "interested_tags": [
     "computer"
-  ]
+  ],
+  "profile_pic": "https://placehold.co/600x400",
+  "fullname": "student1 atbangken"
 }]
