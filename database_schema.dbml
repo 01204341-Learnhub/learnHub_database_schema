@@ -253,10 +253,6 @@ Ref: "courses"."_id" < "announcement"."_id"
 
 Ref: "courses"."_id" < "review"."_id"
 
-
-
-
-
 Ref: "student"."basket" < "basket_item"."__"
 
 Ref: "student"."wishlist" < "wishlist_item"."__"
