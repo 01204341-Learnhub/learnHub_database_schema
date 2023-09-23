@@ -40,6 +40,7 @@ Table teacher {
     created_date date
     total_video_length int [note: "in second"]
     chapter_count int
+    video_count int
     quiz_count int
     file_count int
     student_count int [note: "number of student who enroll this course"]
@@ -103,7 +104,7 @@ Table teacher {
     _id objectId [primary key]
     student_id objectId
     course_id objectId
-    progress double [note: "total progress in percent"]
+    finished_count int [note: "total lesson finished"]
     finished boolean [note: "has student finished this course lessons array_of_lesson_progress"]
     lessons array_of_lesson_progress [note: "track each lesson progress of this course"]
  }
