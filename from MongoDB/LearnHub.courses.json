@@ -32,7 +32,8 @@
   "chapter_count": 1,
   "file_count": 1,
   "quiz_count": 0,
-  "status": "started"
+  "status": "started",
+  "video_count": 1
 },
 {
   "_id": {
@@ -68,5 +69,6 @@
   "chapter_count": 0,
   "file_count": 0,
   "quiz_count": 0,
-  "status": "started"
+  "status": "started",
+  "video_count": 0
 }]
