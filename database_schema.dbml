@@ -4,7 +4,7 @@ Project learnHub_Database {
 // added
 //added but not final
 // not in api yet
-// not in db yet and api???'''
+// not in db yet'''
 }
 
 
@@ -93,11 +93,44 @@ Table teacher {
     quiz_id objectId
     
  }
-  // not in api yet
-  Table quiz {
-    quiz_id objectId
-    quiz_struct quiz_struct
-
+  //added
+  Table quizzes {
+    _id objectId [primary key]
+    name string
+    description string
+    time_limit int [note: " in second, can't do quiz more than the time limit, none is no time limit "]
+    quiz_pic string
+    problems array_of_problem
+ }
+// added
+Table problem {
+    __ __
+    problem_num int
+    question string [note: "string describing question"]
+    multiple_correct_answers boolean  [note: " false = 1 answer, true = multiple answers"]
+    choice object(choice)
+    correct_answer object(correct_answer)
+    explanation string [note: "correct_answer explanation"]
+ }
+// added
+Table choice {
+    __ __
+    choice_a string [note: "choice word"]
+    choice_b string
+    choice_c string
+    choice_d string
+    choice_e string
+    choice_f string
+ }
+// added
+Table correct_answer {
+    __ __
+    answer_a boolean [note: "true = correct answer"]
+    answer_b boolean
+    answer_c boolean
+    answer_d boolean
+    answer_e boolean
+    answer_f boolean
  }
 // added
   Table course_progresses {
@@ -117,6 +150,32 @@ Table teacher {
     lesson_completed int [note: "lesson lenght completed in second"]
     quiz_score int_or_double [note: "absolute score or percent for quiz only"]
 
+
+ }
+// added
+Table quizzes_result {
+    _id objectId [primary key]
+    quiz_id  objectId
+    student_id  objectId
+    score int
+    status string [note: "not started | started | finish"]
+    problems array_of_problem_result
+ }
+// added
+Table problem_result {
+    __ __
+    problem_num int
+    choice object(choice_result) [note: "the user's answer"]
+ }
+// added
+Table choice_result {
+    __ __
+    choice_a boolean [note: "true = user chose this answer"]
+    choice_b boolean
+    choice_c boolean
+    choice_d boolean
+    choice_e boolean
+    choice_f boolean
  }
 
 // not in db yet and api???
@@ -306,7 +365,7 @@ Ref: "post"."attachments" < "attached_file"."__"
 
 Ref: "assignment"."attachments" < "attached_file"."__"
 
-Ref: "pre_quiz"."quiz_id" - "quiz"."quiz_id"
+Ref: "pre_quiz"."quiz_id" - "quizzes"."_id"
 
 Ref: "teacher"."owned_progarms" < "owned_progarm_item"."__"
 
@@ -323,3 +382,13 @@ Ref: "course_progresses"."lessons" < "lesson_progress"."__"
 Ref: "student"."__" < "course_progresses"."_id"
 
 Ref: "tags"."__" <> "courses"."tags"
+
+Ref: "quizzes"."problems" < "problem"."__"
+
+Ref: "problem"."choice" - "choice"."__"
+
+Ref: "problem"."correct_answer" - "correct_answer"."__"
+
+Ref: "quizzes_result"."problems" < "problem_result"."__"
+
+Ref: "problem_result"."choice" - "choice_result"."__"

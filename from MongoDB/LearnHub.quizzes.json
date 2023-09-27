@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6512f5417dc0304c57c36f47"
+  },
+  "name": "intro to os quiz",
+  "description": "test quiz",
+  "time_limit": 600,
+  "quiz_pic": "https://placehold.co/600x400",
+  "problems": [
+    {
+      "problem_num": 1,
+      "question": "What does os stand for?",
+      "multiple_correct_answers": false,
+      "choice": {
+        "choice_a": "operating system",
+        "choice_b": "orange salad",
+        "choice_c": "one sun",
+        "choice_d": "oracle system",
+        "choice_e": "",
+        "choice_f": ""
+      },
+      "correct_answer": {
+        "answer_a": true,
+        "answer_b": false,
+        "answer_c": false,
+        "answer_d": false,
+        "answer_e": false,
+        "answer_f": false
+      },
+      "explanation": "os stand for operating system"
+    }
+  ]
+}]

@@ -31,4 +31,23 @@
   "lesson_type": "doc",
   "src": "https://s2.q4cdn.com/175719177/files/doc_presentations/Placeholder-PDF.pdf",
   "lesson_length": 300
+},
+{
+  "_id": {
+    "$oid": "65142556897dc81e0c0d6601"
+  },
+  "chapter_id": {
+    "$oid": "64eb1eb746a1d88ca45bd17a"
+  },
+  "lesson_num": 3,
+  "name": "intro to os quiz",
+  "description": "somesomesome",
+  "lesson_type": "quiz",
+  "course_id": {
+    "$oid": "64eaf639565900315d349e49"
+  },
+  "lesson_length": 600,
+  "quiz_id": {
+    "$oid": "6512f5417dc0304c57c36f47"
+  }
 }]
