@@ -11,10 +11,17 @@
   "total_price": 1000,
   "purchase_list": [
     {
-      "progarm_id": {
-        "$oid": "64eaf639565900315d349e49"
-      },
       "type": "course",
+      "price": 1000,
+      "program_id": {
+        "$oid": "64eaf639565900315d349e49"
+      }
+    },
+    {
+      "program_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      },
+      "type": "class",
       "price": 1000
     }
   ]

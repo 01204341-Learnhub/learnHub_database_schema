@@ -9,28 +9,28 @@
     "theme": "dark"
   },
   "type": "teacher",
-  "owned_progarms": [
-    {
-      "progarm_id": {
-        "$oid": "64eaf639565900315d349e49"
-      },
-      "type": "course"
-    },
-    {
-      "progarm_id": {
-        "$oid": "64ec0e5927fa1262130759c6"
-      },
-      "type": "course"
-    },
-    {
-      "progarm_id": {
-        "$oid": "650af343ae18fbe3d31ab8eb"
-      },
-      "type": "class"
-    }
-  ],
   "profile_pic": "https://placehold.co/600x400",
-  "fullname": "peeba atbangken"
+  "fullname": "peeba atbangken",
+  "owned_programs": [
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64eaf639565900315d349e49"
+      }
+    },
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      }
+    },
+    {
+      "type": "class",
+      "program_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      }
+    }
+  ]
 },
 {
   "_id": {
@@ -43,23 +43,15 @@
     "theme": "dark"
   },
   "type": "student",
-  "owned_progarms": [
-    {
-      "progarm_id": {
-        "$oid": "64eaf639565900315d349e49"
-      },
-      "type": "course"
-    }
-  ],
   "wishlist": [
     {
       "wishlist_item_id": {
         "$oid": "64ec14ff27fa1262130759e1"
       },
-      "progarm_id": {
+      "type": "course",
+      "program_id": {
         "$oid": "64ec0e5927fa1262130759c6"
-      },
-      "type": "course"
+      }
     }
   ],
   "basket": [
@@ -67,15 +59,31 @@
       "basket_item_id": {
         "$oid": "64ec15b927fa1262130759e4"
       },
-      "progarm_id": {
+      "type": "course",
+      "program_id": {
         "$oid": "64ec0e5927fa1262130759c6"
-      },
-      "type": "course"
+      }
     }
   ],
   "interested_tags": [
-    "computer"
+    {
+      "$oid": "6509b76eda50b4eec1867261"
+    }
   ],
   "profile_pic": "https://placehold.co/600x400",
-  "fullname": "student1 atbangken"
+  "fullname": "student1 atbangken",
+  "owned_programs": [
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64eaf639565900315d349e49"
+      }
+    },
+    {
+      "type": "class",
+      "program_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      }
+    }
+  ]
 }]

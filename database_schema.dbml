@@ -12,10 +12,10 @@ Project learnHub_Database {
 // added
 Table student {
     __ __
-    interested_tags array_of_string [note: 'array of tag in interest of this student']
-    owned_progarms  array_of_owned_progarm_item [note: 'array of tag in interest of this student']// might not need 
+    interested_tags array_of_objectId [note: 'array of tag_id in interest of this student']
+    owned_programs  array_of_owned_program_item [note: 'array of tag in interest of this student']// might not need 
     wishlist array_of_wish_item [note: 'wishlist of this studednt']
-    basket array_of_basket_item [note: 'basket ( list of progarm to be bought) of this studednt']
+    basket array_of_basket_item [note: 'basket ( list of program to be bought) of this studednt']
     payment_method what // 
     Note: '''continuation of users for student
 //added'''
@@ -23,7 +23,7 @@ Table student {
 // added
 Table teacher {
     __ __
-    owned_progarms  array_of_owned_progarm_item [note: 'progarm that is owned by this teacher']
+    owned_programs  array_of_owned_program_item [note: 'program that is owned by this teacher']
     Note:'''continuation of users for teacher
 //added'''
  }
@@ -182,7 +182,7 @@ Table choice_result {
    Table class_progresses { // not done yet
     _id objectId
     student_id objectId
-    progarm_id objectId [note: "class or course id determine by type"]
+    program_id objectId [note: "class or course id determine by type"]
     type string [note: "course or class"]
     finished boolean
     and_more_for_course more [note: "look like course+chapter+lesson"]
@@ -225,7 +225,7 @@ Table attached_file2 {
 Table basket_item {
     __ __
     basket_item_id objectId
-    progarm_id objectId [note: "class_id or course_id of the item in basket"]
+    program_id objectId [note: "class_id or course_id of the item in basket"]
     type string [note: "class or course"]
    
  }
@@ -240,7 +240,7 @@ Table basket_item {
  //added but not final
  Table purchase_item {
   __ __
-  progarm_id objectId [note: "class or course id determine by type"]
+  program_id objectId [note: "class or course id determine by type"]
   type string [note: "class or course"]
   price double
 }
@@ -261,9 +261,9 @@ Table basket_item {
   description string
 }
 // added
-Table owned_progarm_item {
+Table owned_program_item {
   __ __
-  progarm_id objectId [note: "class or course id determine by type"]
+  program_id objectId [note: "class or course id determine by type"]
   type string [note: "class or course"]
 }
 // added
@@ -285,7 +285,7 @@ Table config {
 Table wishlist_item {
   __ __
   wishlist_item_id objectId
-  progarm_id objectId [note: "class or course id determine by type"]
+  program_id objectId [note: "class or course id determine by type"]
   type string [note: "class or course"]
 }
 //added
@@ -351,11 +351,11 @@ Ref: "student"."basket" < "basket_item"."__"
 
 Ref: "student"."wishlist" < "wishlist_item"."__"
 
-Ref: "student"."owned_progarms" < "owned_progarm_item"."__"
+Ref: "student"."owned_programs" < "owned_program_item"."__"
 
-Ref: "courses"."_id" < "owned_progarm_item"."progarm_id"
+Ref: "courses"."_id" < "owned_program_item"."program_id"
 
-Ref: "classes"."_id" < "owned_progarm_item"."progarm_id"
+Ref: "classes"."_id" < "owned_program_item"."program_id"
 
 Ref: "post"."comments" < "comment"."__"
 
@@ -367,7 +367,7 @@ Ref: "assignment"."attachments" < "attached_file"."__"
 
 Ref: "pre_quiz"."quiz_id" - "quizzes"."_id"
 
-Ref: "teacher"."owned_progarms" < "owned_progarm_item"."__"
+Ref: "teacher"."owned_programs" < "owned_program_item"."__"
 
 Ref: "announcements"."attachments" < "attached_file2"."__"
 
@@ -392,3 +392,5 @@ Ref: "problem"."correct_answer" - "correct_answer"."__"
 Ref: "quizzes_result"."problems" < "problem_result"."__"
 
 Ref: "problem_result"."choice" - "choice_result"."__"
+
+Ref: "tags"."_id" <> "classes"."tags"
