@@ -29,6 +29,16 @@
       },
       "finished": false,
       "lesson_completed": 0
+    },
+    {
+      "lesson_id": {
+        "$oid": "65142556897dc81e0c0d6601"
+      },
+      "chapter_id": {
+        "$oid": "64eb1eb746a1d88ca45bd17a"
+      },
+      "finished": false,
+      "lesson_completed": 0
     }
   ],
   "finished_count": 0

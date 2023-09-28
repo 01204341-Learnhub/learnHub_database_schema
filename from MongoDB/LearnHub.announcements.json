@@ -6,7 +6,7 @@
     "$oid": "64eaf639565900315d349e49"
   },
   "last_edit": {
-    "$date": "1970-01-01T00:00:00.000Z"
+    "$date": "2000-01-01T00:00:10.000Z"
   },
   "name": "os announcement 1",
   "teacher_id": {
@@ -15,8 +15,23 @@
   "text": "go study",
   "attachments": [
     {
-      "attachment_type": "picture",
+      "attachment_type": "image",
       "src": "https://placehold.co/600x400"
     }
   ]
+},
+{
+  "_id": {
+    "$oid": "650e8bc23169839a29b143ff"
+  },
+  "name": "Awww",
+  "text": "What The Text",
+  "attachments": [],
+  "teacher_id": "64eb196e46a1d88ca45bd160",
+  "course_id": {
+    "$oid": "64eaf639565900315d349e49"
+  },
+  "last_edit": {
+    "$date": "2023-09-23T13:54:58.891Z"
+  }
 }]
