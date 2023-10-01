@@ -6,13 +6,13 @@
   "problems": [
     {
       "problem_num": 1,
-      "choice": {
-        "choice_a": false,
-        "choice_b": false,
-        "choice_c": false,
-        "choice_d": false,
-        "choice_e": false,
-        "choice_f": false
+      "answer": {
+        "answer_a": false,
+        "answer_b": false,
+        "answer_c": false,
+        "answer_d": false,
+        "answer_e": false,
+        "answer_f": false
       }
     }
   ],

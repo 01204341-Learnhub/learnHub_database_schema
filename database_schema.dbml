@@ -164,17 +164,17 @@ Table quizzes_result {
 Table problem_result {
     __ __
     problem_num int
-    choice object(choice_result) [note: "the user's answer"]
+    answer object(answer_result) [note: "the user's answer"]
  }
 // added
-Table choice_result {
+Table answer_result {
     __ __
-    choice_a boolean [note: "true = user chose this answer"]
-    choice_b boolean
-    choice_c boolean
-    choice_d boolean
-    choice_e boolean
-    choice_f boolean
+    answer_a boolean [note: "true = user chose this answer"]
+    answer_b boolean
+    answer_c boolean
+    answer_d boolean
+    answer_e boolean
+    answer_f boolean
  }
 
 // not in db yet and api???
