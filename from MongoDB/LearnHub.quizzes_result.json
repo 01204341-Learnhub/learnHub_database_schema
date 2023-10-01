@@ -13,7 +13,8 @@
         "answer_d": false,
         "answer_e": false,
         "answer_f": false
-      }
+      },
+      "is_correct": false
     }
   ],
   "status": "not started",

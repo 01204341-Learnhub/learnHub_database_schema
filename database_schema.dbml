@@ -164,6 +164,7 @@ Table quizzes_result {
 Table problem_result {
     __ __
     problem_num int
+    is_correct bool [note: "is the answer now correct"]
     answer object(answer_result) [note: "the user's answer"]
  }
 // added
@@ -403,7 +404,7 @@ Ref: "problem"."correct_answer" - "correct_answer"."__"
 
 Ref: "quizzes_result"."problems" < "problem_result"."__"
 
-Ref: "problem_result"."choice" - "choice_result"."__"
+Ref: "problem_result"."answer" - "answer_result"."__"
 
 Ref: "tags"."_id" <> "classes"."tags"
 
