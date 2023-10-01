@@ -30,6 +30,20 @@
         "$oid": "650af343ae18fbe3d31ab8eb"
       }
     }
+  ],
+  "uid": "12313123",
+  "payment_methods": [
+    {
+      "payment_method_id": {
+        "$oid": "6518df32a029cf11909bf11f"
+      },
+      "name": "peeba atbangken card 1",
+      "type": "kbank_debit",
+      "card_number": "0000000000000000",
+      "cvc": "000",
+      "expiration_date": "08/25",
+      "holder_fullname": "peeba atbangken"
+    }
   ]
 },
 {
@@ -84,6 +98,20 @@
       "program_id": {
         "$oid": "650af343ae18fbe3d31ab8eb"
       }
+    }
+  ],
+  "uid": "131231",
+  "payment_methods": [
+    {
+      "payment_method_id": {
+        "$oid": "6518dce5a029cf11909bf114"
+      },
+      "name": "student1 atbangken card 1",
+      "type": "kbank_debit",
+      "card_number": "0000000000000000",
+      "cvc": "000",
+      "expiration_date": "08/25",
+      "holder_fullname": "student1 atbangken"
     }
   ]
 }]

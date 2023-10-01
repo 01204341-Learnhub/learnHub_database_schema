@@ -16,7 +16,6 @@ Table student {
     owned_programs  array_of_owned_program_item [note: 'array of tag in interest of this student']// might not need 
     wishlist array_of_wish_item [note: 'wishlist of this studednt']
     basket array_of_basket_item [note: 'basket ( list of program to be bought) of this studednt']
-    payment_method what // 
     Note: '''continuation of users for student
 //added'''
  }
@@ -248,6 +247,7 @@ Table basket_item {
  Table reviews { // course only
     _id objectId [primary key]
     course_id objectId
+    student_id objectId 
     created_date date
     score int
     description string
@@ -269,17 +269,29 @@ Table owned_program_item {
 // added
 Table users {
   _id objectId [primary key]
+  uid string
   username string
   password string
   email string
   fullname string
   proflie_pic string [note: "user profile picture in URL"]
   config object(config) [note: "user's configuration"]
+  payment_methods array_of_payment_payment_methods
   type string [note: "student or teacher"]
 }
 // added
 Table config {
   theme str [note: "light or dark theme for website"]
+}
+// added
+Table payment_methods {
+  payment_method_id objectId
+  name string
+  type string
+  card_number string
+  cvc string
+  expiration_date string
+  holder_fullname string
 }
 // added
 Table wishlist_item {
@@ -394,3 +406,5 @@ Ref: "quizzes_result"."problems" < "problem_result"."__"
 Ref: "problem_result"."choice" - "choice_result"."__"
 
 Ref: "tags"."_id" <> "classes"."tags"
+
+Ref: "users"."payment_methods" < "payment_methods"."payment_method_id"
