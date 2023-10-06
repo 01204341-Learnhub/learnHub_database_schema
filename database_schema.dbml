@@ -210,15 +210,30 @@ Table attached_file2 {
     attachment_type string [note: " doc video or more"]
     src string [note: "URL of the file"]
  }
- // not in api yet
- Table assignment {
+ // added
+ Table assignments {
     _id objectId [primary key]
     class_id objectId
     name string
-    description string
+    group_name string [note: "for assignment grouping"]
+    text string [note: "description"]
+    max_score int
     created_date date
-    due_date date
+    due_time date
+    last_edit date
     attachments array_of_attached_file
+    Note: ''' template assignments for every student to work on'''
+
+ }
+
+ // not in api yet
+ Table assignments_results {
+    _id objectId [primary key]
+    student_id objectId
+    assignment_id objectId
+    score int
+    attachments array_of_attached_file
+    Note: ''' assignments that student works on'''
 
  }
 // added
@@ -229,7 +244,7 @@ Table basket_item {
     type string [note: "class or course"]
    
  }
-//added but not final
+//added
  Table transactions {
     _id objectId
     user_id objectId [note: "buyer user_id"]
@@ -237,7 +252,7 @@ Table basket_item {
     total_price double
     purchase_list array_of_purchase_item
  }
- //added but not final
+ //added
  Table purchase_item {
   __ __
   program_id objectId [note: "class or course id determine by type"]
@@ -350,7 +365,7 @@ Ref: "courses"."teacher_id" < "teacher"."__"
 
 Ref: "classes"."_id" < "post"."_id"
 
-Ref: "classes"."_id" < "assignment"."_id"
+Ref: "classes"."_id" < "assignments"."_id"
 
 Ref: "classes"."teacher_id" < "teacher"."__"
 
@@ -376,7 +391,7 @@ Ref: "transactions"."purchase_list" < "purchase_item"."__"
 
 Ref: "post"."attachments" < "attached_file"."__"
 
-Ref: "assignment"."attachments" < "attached_file"."__"
+Ref: "assignments"."attachments" < "attached_file"."__"
 
 Ref: "pre_quiz"."quiz_id" - "quizzes"."_id"
 
@@ -409,3 +424,5 @@ Ref: "problem_result"."answer" - "answer_result"."__"
 Ref: "tags"."_id" <> "classes"."tags"
 
 Ref: "users"."payment_methods" < "payment_methods"."payment_method_id"
+
+Ref: "assignments_results"."attachments" < "attached_file"."__"
