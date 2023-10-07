@@ -210,7 +210,7 @@ Table attached_file2 {
     attachment_type string [note: " doc video or more"]
     src string [note: "URL of the file"]
  }
- // added
+ // not in db yet
  Table assignments {
     _id objectId [primary key]
     class_id objectId
@@ -221,6 +221,7 @@ Table attached_file2 {
     created_date date
     due_time date
     last_edit date
+    status string
     attachments array_of_attached_file
     Note: ''' template assignments for every student to work on'''
 
@@ -234,7 +235,7 @@ Table attached_file2 {
     score int
     attachments array_of_attached_file
     Note: ''' assignments that student works on'''
-
+    //hahaflag
  }
 // added
 Table basket_item {
