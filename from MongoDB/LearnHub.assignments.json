@@ -12,9 +12,6 @@
   "group_name": "chapter 1",
   "max_score": 10,
   "text": "write python program that add 2 integer",
-  "due_time": {
-    "$date": "2023-06-29T00:00:00.000Z"
-  },
   "attachments": [
     {
       "attachment_type": "text",
@@ -24,5 +21,8 @@
   "last_edit": {
     "$date": "2023-06-28T00:02:00.000Z"
   },
-  "status": "open"
+  "status": "open",
+  "due_date": {
+    "$date": "2023-06-29T00:00:00.000Z"
+  }
 }]
