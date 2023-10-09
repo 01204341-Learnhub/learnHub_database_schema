@@ -7,13 +7,13 @@
   },
   "name": "python lab 1 work",
   "created_date": {
-    "$date": "2023-10-01T00:00:00.000Z"
+    "$date": "2023-06-28T00:00:00.000Z"
   },
   "group_name": "chapter 1",
   "max_score": 10,
   "text": "write python program that add 2 integer",
   "due_time": {
-    "$date": "2023-10-31T00:00:00.000Z"
+    "$date": "2023-06-29T00:00:00.000Z"
   },
   "attachments": [
     {
@@ -22,7 +22,7 @@
     }
   ],
   "last_edit": {
-    "$date": "2023-10-01T00:00:00.000Z"
+    "$date": "2023-06-28T00:02:00.000Z"
   },
   "status": "open"
 }]

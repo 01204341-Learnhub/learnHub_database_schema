@@ -64,15 +64,24 @@ Table teacher {
     created_date date
     student_count int
     max_student int
+    rating double
+    review_count int
     assignment_count int
     meeting_count int
     chapter_count int
-    open_time something
+    open_date date
     registration_ended_date date [note: "can't register beyond this date"]
     class_ended_date date [note: "the day class end and no more teaching"]
     teacher_id objectId [note: ""]// may include name
     price double [note: "price of a course in baht"]
     status string [note: "finished | not started | started | private"]
+    schedules array_of_schedule
+ }
+// not in db yet
+  Table schedule {
+    __ __
+    start date
+    end date
  }
 // added
   Table chapters {
@@ -210,7 +219,7 @@ Table attached_file2 {
     attachment_type string [note: " doc video or more"]
     src string [note: "URL of the file"]
  }
- // not in db yet
+ // added
  Table assignments {
     _id objectId [primary key]
     class_id objectId
@@ -227,11 +236,13 @@ Table attached_file2 {
 
  }
 
- // not in api yet
- Table assignments_results {
+ // added
+ Table assignment_submissions {
     _id objectId [primary key]
     student_id objectId
+    class_id objectId
     assignment_id objectId
+    status string [note:"check | uncheck | unsubmit"]
     score int
     attachments array_of_attached_file
     Note: ''' assignments that student works on'''
@@ -426,4 +437,8 @@ Ref: "tags"."_id" <> "classes"."tags"
 
 Ref: "users"."payment_methods" < "payment_methods"."payment_method_id"
 
-Ref: "assignments_results"."attachments" < "attached_file"."__"
+Ref: "assignment_submissions"."attachments" < "attached_file"."__"
+
+Ref: "assignments"."_id" < "assignment_submissions"."_id"
+
+Ref: "classes"."schedules" - "schedule"."__"

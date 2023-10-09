@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "65237de35c9ad8dba73722a8"
+  },
+  "student_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "assignment_id": {
+    "$oid": "651ff2d55cad2cd2cd56b7f9"
+  },
+  "status": "uncheck",
+  "score": 0,
+  "attachments": [
+    {
+      "attachment_type": "text",
+      "src": "https://gist.githubusercontent.com/mosbth/b274bd08aab0ed0f9521/raw/52ed0bf390384f7253a37c88c1caf55886b83902/hello.py"
+    }
+  ],
+  "class_id": {
+    "$oid": "650af343ae18fbe3d31ab8eb"
+  }
+}]
