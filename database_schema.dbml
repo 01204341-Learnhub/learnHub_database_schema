@@ -51,7 +51,7 @@ Table teacher {
     Note: '''Stores courses data 
 //added'''
  }
-//added but not final
+//added
   Table classes {
     _id objectId [primary key, note:""]// class's id
     name string
@@ -77,7 +77,7 @@ Table teacher {
     status string [note: "finished | not started | started | private"]
     schedules array_of_schedule
  }
-// not in db yet
+// added
   Table schedule {
     __ __
     start date
@@ -96,7 +96,7 @@ Table teacher {
 
  }
  
- // not in api yet
+ // added?
  Table pre_quiz {
     quiz_id objectId
     
@@ -196,18 +196,17 @@ Table answer_result {
     finished boolean
     and_more_for_course more [note: "look like course+chapter+lesson"]
  }
-  // not in api yet
- Table post {
+  // not in db yet
+ Table threads {
     _id objectId [primary key]
     class_id objectId
     teacher_id objectId [note: "writer user_id"]
     name string
     text string
     last_edit date
-    comments array_of_comment
     attachments array_of_attached_file
  }
-  // not in api yet
+  // not in db yet
   Table attached_file {
     __ __
     attachment_type string [note: "doc video or more"]
@@ -246,7 +245,6 @@ Table attached_file2 {
     score int
     attachments array_of_attached_file
     Note: ''' assignments that student works on'''
-    //hahaflag
  }
 // added
 Table basket_item {
@@ -375,7 +373,7 @@ Table tags {
 
 Ref: "courses"."teacher_id" < "teacher"."__"
 
-Ref: "classes"."_id" < "post"."_id"
+Ref: "classes"."_id" < "threads"."_id"
 
 Ref: "classes"."_id" < "assignments"."_id"
 
@@ -397,11 +395,9 @@ Ref: "courses"."_id" < "owned_program_item"."program_id"
 
 Ref: "classes"."_id" < "owned_program_item"."program_id"
 
-Ref: "post"."comments" < "comment"."__"
-
 Ref: "transactions"."purchase_list" < "purchase_item"."__"
 
-Ref: "post"."attachments" < "attached_file"."__"
+Ref: "threads"."attachments" < "attached_file"."__"
 
 Ref: "assignments"."attachments" < "attached_file"."__"
 
