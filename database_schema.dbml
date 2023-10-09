@@ -196,7 +196,7 @@ Table answer_result {
     finished boolean
     and_more_for_course more [note: "look like course+chapter+lesson"]
  }
-  // not in db yet
+  // added
  Table threads {
     _id objectId [primary key]
     class_id objectId
@@ -206,7 +206,7 @@ Table answer_result {
     last_edit date
     attachments array_of_attached_file
  }
-  // not in db yet
+  // added
   Table attached_file {
     __ __
     attachment_type string [note: "doc video or more"]
