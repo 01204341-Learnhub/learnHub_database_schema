@@ -227,7 +227,7 @@ Table attached_file2 {
     text string [note: "description"]
     max_score int
     created_date date
-    due_time date
+    due_date date
     last_edit date
     status string
     attachments array_of_attached_file
