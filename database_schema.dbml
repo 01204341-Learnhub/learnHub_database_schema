@@ -242,6 +242,7 @@ Table attached_file2 {
     class_id objectId
     assignment_id objectId
     status string [note:"check | uncheck | unsubmit"]
+    submission_date date
     score int
     attachments array_of_attached_file
     Note: ''' assignments that student works on'''
