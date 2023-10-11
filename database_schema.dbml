@@ -270,13 +270,13 @@ Table basket_item {
   type string [note: "class or course"]
   price double
 }
-// not in api yet
- Table reviews { // course only
+// added
+ Table course_reviews { // course only
     _id objectId [primary key]
     course_id objectId
     student_id objectId 
     created_date date
-    score int
+    rating float
     description string
  }
   // not in api yet
@@ -384,7 +384,7 @@ Ref: "users"."_id" < "transactions"."_id"
 
 Ref: "courses"."_id" < "announcements"."_id"
 
-Ref: "courses"."_id" < "reviews"."_id"
+Ref: "courses"."_id" < "course_reviews"."_id"
 
 Ref: "student"."basket" < "basket_item"."__"
 
