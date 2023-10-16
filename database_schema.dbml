@@ -234,6 +234,18 @@ Table attached_file2 {
     Note: ''' template assignments for every student to work on'''
 
  }
+  // added
+ Table assignment_replies {
+  __ __
+  _id objectId
+  class_id objectId
+  thread_id objectId
+  user object(replies_user) [note: "writer"]
+  text string
+  reply_date date
+  Note: '''comment for assignment'''
+
+}
 
  // added
  Table assignment_submissions {
@@ -279,13 +291,24 @@ Table basket_item {
     rating float
     description string
  }
-  // not in api yet
- Table comment {
+  // added
+ Table thread_replies {
   __ __
   _id objectId
-  user_id objectId [note: "writer"]
-  created_date date
-  description string
+  class_id objectId
+  thread_id objectId
+  user object(replies_user) [note: "writer"]
+  text string
+  reply_date date
+  Note: '''comment for thread'''
+
+}
+ Table replies_user {
+  __ __
+  user_id objectId
+  user_type string
+  Note: '''comment for thread'''
+
 }
 // added
 Table owned_program_item {
@@ -439,3 +462,11 @@ Ref: "assignment_submissions"."attachments" < "attached_file"."__"
 Ref: "assignments"."_id" < "assignment_submissions"."_id"
 
 Ref: "classes"."schedules" - "schedule"."__"
+
+Ref: "threads"."_id" < "thread_replies"."__"
+
+Ref: "thread_replies"."user" - "replies_user"."__"
+
+Ref: "assignments"."_id" < "assignment_replies"."__"
+
+Ref: "assignment_replies"."user" - "replies_user"."__"
