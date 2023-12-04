@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "65142256897dc81e0c0d65f6"
+  },
+  "score": 0,
+  "problems": [
+    {
+      "problem_num": 1,
+      "answer": {
+        "answer_a": false,
+        "answer_b": false,
+        "answer_c": false,
+        "answer_d": false,
+        "answer_e": false,
+        "answer_f": false
+      },
+      "is_correct": false
+    }
+  ],
+  "status": "not started",
+  "quiz_id": {
+    "$oid": "6512f5417dc0304c57c36f47"
+  },
+  "student_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  }
+}]

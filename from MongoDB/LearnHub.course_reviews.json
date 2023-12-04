@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "652617f2c180ce589e83a4dd"
+  },
+  "course_id": {
+    "$oid": "64eaf639565900315d349e49"
+  },
+  "student_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "created_date": {
+    "$date": "2023-01-01T00:00:00.000Z"
+  },
+  "rating": 4.5,
+  "description": "this is good shit"
+}]

@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "username": "teacher1",
+  "password": "1q2w3e4r",
+  "email": "teacher1@ku.th",
+  "config": {
+    "theme": "dark"
+  },
+  "type": "teacher",
+  "profile_pic": "https://placehold.co/600x400",
+  "fullname": "peeba atbangken",
+  "owned_programs": [
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64eaf639565900315d349e49"
+      }
+    },
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      }
+    },
+    {
+      "type": "class",
+      "program_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      }
+    }
+  ],
+  "uid": "12313123",
+  "payment_methods": [
+    {
+      "payment_method_id": {
+        "$oid": "6518df32a029cf11909bf11f"
+      },
+      "name": "peeba atbangken card 1",
+      "type": "kbank_debit",
+      "card_number": "0000000000000000",
+      "cvc": "000",
+      "expiration_date": "08/25",
+      "holder_fullname": "peeba atbangken"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64ec126c27fa1262130759d4"
+  },
+  "username": "student1",
+  "password": "1q2w3e4r",
+  "email": "student1@ku.th",
+  "config": {
+    "theme": "dark"
+  },
+  "type": "student",
+  "wishlist": [
+    {
+      "wishlist_item_id": {
+        "$oid": "64ec14ff27fa1262130759e1"
+      },
+      "type": "course",
+      "program_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      }
+    }
+  ],
+  "basket": [
+    {
+      "basket_item_id": {
+        "$oid": "64ec15b927fa1262130759e4"
+      },
+      "type": "course",
+      "program_id": {
+        "$oid": "64ec0e5927fa1262130759c6"
+      }
+    }
+  ],
+  "interested_tags": [
+    {
+      "$oid": "6509b76eda50b4eec1867261"
+    }
+  ],
+  "profile_pic": "https://placehold.co/600x400",
+  "fullname": "student1 atbangken",
+  "owned_programs": [
+    {
+      "type": "course",
+      "program_id": {
+        "$oid": "64eaf639565900315d349e49"
+      }
+    },
+    {
+      "type": "class",
+      "program_id": {
+        "$oid": "650af343ae18fbe3d31ab8eb"
+      }
+    }
+  ],
+  "uid": "131231",
+  "payment_methods": [
+    {
+      "payment_method_id": {
+        "$oid": "6518dce5a029cf11909bf114"
+      },
+      "name": "student1 atbangken card 1",
+      "type": "kbank_debit",
+      "card_number": "0000000000000000",
+      "cvc": "000",
+      "expiration_date": "08/25",
+      "holder_fullname": "student1 atbangken"
+    }
+  ]
+}]

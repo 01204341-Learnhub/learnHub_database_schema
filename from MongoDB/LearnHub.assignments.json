@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "651ff2d55cad2cd2cd56b7f9"
+  },
+  "class_id": {
+    "$oid": "650af343ae18fbe3d31ab8eb"
+  },
+  "name": "python lab 1 work",
+  "created_date": {
+    "$date": "2023-06-28T00:00:00.000Z"
+  },
+  "group_name": "chapter 1",
+  "max_score": 10,
+  "text": "write python program that add 2 integer",
+  "attachments": [
+    {
+      "attachment_type": "text",
+      "src": "https://gist.githubusercontent.com/mosbth/b274bd08aab0ed0f9521/raw/52ed0bf390384f7253a37c88c1caf55886b83902/hello.py"
+    }
+  ],
+  "last_edit": {
+    "$date": "2023-06-28T00:02:00.000Z"
+  },
+  "status": "open",
+  "due_date": {
+    "$date": "2023-06-29T00:00:00.000Z"
+  }
+}]

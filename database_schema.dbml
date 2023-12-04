@@ -1,0 +1,472 @@
+Project learnHub_Database {
+  database_type: 'MongoDB'
+  Note: '''Database for LearnHub
+// added
+//added but not final
+// not in api yet
+// not in db yet'''
+}
+
+
+
+// added
+Table student {
+    __ __
+    interested_tags array_of_objectId [note: 'array of tag_id in interest of this student']
+    owned_programs  array_of_owned_program_item [note: 'array of tag in interest of this student']// might not need 
+    wishlist array_of_wish_item [note: 'wishlist of this studednt']
+    basket array_of_basket_item [note: 'basket ( list of program to be bought) of this studednt']
+    Note: '''continuation of users for student
+//added'''
+ }
+// added
+Table teacher {
+    __ __
+    owned_programs  array_of_owned_program_item [note: 'program that is owned by this teacher']
+    Note:'''continuation of users for teacher
+//added'''
+ }
+// added
+ Table courses {
+    _id objectId [primary key,not null,unique]
+    name string  [note: 'course name']
+    description string [note: 'long description in md?']
+    course_objective array_of_string
+    course_requirement string
+    difficulty_level string
+    tags array_of_objectId [note: "course's tag in array of tag_id"]
+    course_pic string [note: "course's tag in array of tag_id"]
+    created_date date
+    total_video_length int [note: "in second"]
+    chapter_count int
+    video_count int
+    quiz_count int
+    file_count int
+    student_count int [note: "number of student who enroll this course"]
+    teacher_id objectId
+    rating double [note: "average review score of this course"]
+    review_count int [note: "number of review"]
+    price double [note: "price of a course in baht"]
+    status string [note: "finished | not started | started | private"]
+    Note: '''Stores courses data 
+//added'''
+ }
+//added
+  Table classes {
+    _id objectId [primary key, note:""]// class's id
+    name string
+    description string 
+    class_objective array_of_string [note: " list of class_objective"]
+    class_requirement string
+    difficulty_level string
+    tags array_of_objectId [note: "class's tag in array of tag_id"]
+    class_pic string
+    created_date date
+    student_count int
+    max_student int
+    rating double
+    review_count int
+    assignment_count int
+    meeting_count int
+    chapter_count int
+    open_date date
+    registration_ended_date date [note: "can't register beyond this date"]
+    class_ended_date date [note: "the day class end and no more teaching"]
+    teacher_id objectId [note: ""]// may include name
+    price double [note: "price of a course in baht"]
+    status string [note: "finished | not started | started | private"]
+    schedules array_of_schedule
+ }
+// added
+  Table schedule {
+    __ __
+    start date
+    end date
+ }
+// added
+  Table chapters {
+    _id objectId [primary key] // chapter's id
+    course_id objectId
+    name string [note: "chapter's name"]
+    description string
+    chapter_num int [note: "chapter number"]
+    lesson_count int [note: "total lesson count"]
+    chapter_length int [note: "expected study time of this chapter in second (video included)"]
+    
+
+ }
+ 
+ // added?
+ Table pre_quiz {
+    quiz_id objectId
+    
+ }
+  //added
+  Table quizzes {
+    _id objectId [primary key]
+    name string
+    description string
+    time_limit int [note: " in second, can't do quiz more than the time limit, none is no time limit "]
+    quiz_pic string
+    problems array_of_problem
+ }
+// added
+Table problem {
+    __ __
+    problem_num int
+    question string [note: "string describing question"]
+    multiple_correct_answers boolean  [note: " false = 1 answer, true = multiple answers"]
+    choice object(choice)
+    correct_answer object(correct_answer)
+    explanation string [note: "correct_answer explanation"]
+ }
+// added
+Table choice {
+    __ __
+    choice_a string [note: "choice word"]
+    choice_b string
+    choice_c string
+    choice_d string
+    choice_e string
+    choice_f string
+ }
+// added
+Table correct_answer {
+    __ __
+    answer_a boolean [note: "true = correct answer"]
+    answer_b boolean
+    answer_c boolean
+    answer_d boolean
+    answer_e boolean
+    answer_f boolean
+ }
+// added
+  Table course_progresses {
+    _id objectId [primary key]
+    student_id objectId
+    course_id objectId
+    finished_count int [note: "total lesson finished"]
+    finished boolean [note: "has student finished this course lessons array_of_lesson_progress"]
+    lessons array_of_lesson_progress [note: "track each lesson progress of this course"]
+ }
+ // added
+ Table lesson_progress {
+    __ __
+    lesson_id objectId
+    chapter_id objectId
+    finished boolean [note: "has student finished this lessson"]
+    lesson_completed int [note: "lesson lenght completed in second"]
+    quiz_score int_or_double [note: "absolute score or percent for quiz only"]
+
+
+ }
+// added
+Table quizzes_result {
+    _id objectId [primary key]
+    quiz_id  objectId
+    student_id  objectId
+    score int
+    status string [note: "not started | started | finish"]
+    problems array_of_problem_result
+ }
+// added
+Table problem_result {
+    __ __
+    problem_num int
+    is_correct bool [note: "is the answer now correct"]
+    answer object(answer_result) [note: "the user's answer"]
+ }
+// added
+Table answer_result {
+    __ __
+    answer_a boolean [note: "true = user chose this answer"]
+    answer_b boolean
+    answer_c boolean
+    answer_d boolean
+    answer_e boolean
+    answer_f boolean
+ }
+
+// not in db yet and api???
+   Table class_progresses { // not done yet
+    _id objectId
+    student_id objectId
+    program_id objectId [note: "class or course id determine by type"]
+    type string [note: "course or class"]
+    finished boolean
+    and_more_for_course more [note: "look like course+chapter+lesson"]
+ }
+  // added
+ Table threads {
+    _id objectId [primary key]
+    class_id objectId
+    teacher_id objectId [note: "writer user_id"]
+    name string
+    text string
+    last_edit date
+    attachments array_of_attached_file
+ }
+  // added
+  Table attached_file {
+    __ __
+    attachment_type string [note: "doc video or more"]
+    src string [note: "URL of the file"]
+ }
+//added
+Table attached_file2 {
+    __ __
+    attachment_type string [note: " doc video or more"]
+    src string [note: "URL of the file"]
+ }
+ // added
+ Table assignments {
+    _id objectId [primary key]
+    class_id objectId
+    name string
+    group_name string [note: "for assignment grouping"]
+    text string [note: "description"]
+    max_score int
+    created_date date
+    due_date date
+    last_edit date
+    status string
+    attachments array_of_attached_file
+    Note: ''' template assignments for every student to work on'''
+
+ }
+  // added
+ Table assignment_replies {
+  __ __
+  _id objectId
+  class_id objectId
+  thread_id objectId
+  user object(replies_user) [note: "writer"]
+  text string
+  reply_date date
+  Note: '''comment for assignment'''
+
+}
+
+ // added
+ Table assignment_submissions {
+    _id objectId [primary key]
+    student_id objectId
+    class_id objectId
+    assignment_id objectId
+    status string [note:"check | uncheck | unsubmit"]
+    submission_date date
+    score int
+    attachments array_of_attached_file
+    Note: ''' assignments that student works on'''
+ }
+// added
+Table basket_item {
+    __ __
+    basket_item_id objectId
+    program_id objectId [note: "class_id or course_id of the item in basket"]
+    type string [note: "class or course"]
+   
+ }
+//added
+ Table transactions {
+    _id objectId
+    user_id objectId [note: "buyer user_id"]
+    purchase_time date
+    total_price double
+    purchase_list array_of_purchase_item
+ }
+ //added
+ Table purchase_item {
+  __ __
+  program_id objectId [note: "class or course id determine by type"]
+  type string [note: "class or course"]
+  price double
+}
+// added
+ Table course_reviews { // course only
+    _id objectId [primary key]
+    course_id objectId
+    student_id objectId 
+    created_date date
+    rating float
+    description string
+ }
+  // added
+ Table thread_replies {
+  __ __
+  _id objectId
+  class_id objectId
+  thread_id objectId
+  user object(replies_user) [note: "writer"]
+  text string
+  reply_date date
+  Note: '''comment for thread'''
+
+}
+ Table replies_user {
+  __ __
+  user_id objectId
+  user_type string
+  Note: '''comment for thread'''
+
+}
+// added
+Table owned_program_item {
+  __ __
+  program_id objectId [note: "class or course id determine by type"]
+  type string [note: "class or course"]
+}
+// added
+Table users {
+  _id objectId [primary key]
+  uid string
+  username string
+  password string
+  email string
+  fullname string
+  proflie_pic string [note: "user profile picture in URL"]
+  config object(config) [note: "user's configuration"]
+  payment_methods array_of_payment_payment_methods
+  type string [note: "student or teacher"]
+}
+// added
+Table config {
+  theme str [note: "light or dark theme for website"]
+}
+// added
+Table payment_methods {
+  payment_method_id objectId
+  name string
+  type string
+  card_number string
+  cvc string
+  expiration_date string
+  holder_fullname string
+}
+// added
+Table wishlist_item {
+  __ __
+  wishlist_item_id objectId
+  program_id objectId [note: "class or course id determine by type"]
+  type string [note: "class or course"]
+}
+//added
+Table announcements { // course only
+  _id objectId [primary key]
+  course_id objectId [note: "anuncement owner"]
+  teacher_id objectId [note: "writer's teacher_id "]
+  last_edit date
+  name str
+  text string [note: "announcement info text"]
+  attachments array_of_attached_file [note: "file attachments"]
+}
+// added
+Table lesson {
+  __ __
+  _id objectId [primary key] // lesson's id
+  course_id objectId
+  chapter_id objectId
+  lesson_num int [note: "for lesson ordering"]
+  name string [note: "lesson name"]
+  description string
+  lesson_type string [note: "video,doc,quiz"]
+  lesson_length int [note: "expected study time of this lesson in second (video included)}"]
+}
+// added
+Table video {
+  __ __
+  src string [note: "URL of the file"]
+
+}
+// added
+Table doc {
+  __ __
+  src string [note: "URL of the file"]
+}
+// not in api yet
+Table achievements {
+  __ __ // wah==
+}
+// added
+Table tags {
+  __ __
+  _id objectId [primary key]
+  name string
+}
+
+
+Ref: "courses"."teacher_id" < "teacher"."__"
+
+Ref: "classes"."_id" < "threads"."_id"
+
+Ref: "classes"."_id" < "assignments"."_id"
+
+Ref: "classes"."teacher_id" < "teacher"."__"
+
+Ref: "users"."_id" < "transactions"."_id"
+
+Ref: "courses"."_id" < "announcements"."_id"
+
+Ref: "courses"."_id" < "course_reviews"."_id"
+
+Ref: "student"."basket" < "basket_item"."__"
+
+Ref: "student"."wishlist" < "wishlist_item"."__"
+
+Ref: "student"."owned_programs" < "owned_program_item"."__"
+
+Ref: "courses"."_id" < "owned_program_item"."program_id"
+
+Ref: "classes"."_id" < "owned_program_item"."program_id"
+
+Ref: "transactions"."purchase_list" < "purchase_item"."__"
+
+Ref: "threads"."attachments" < "attached_file"."__"
+
+Ref: "assignments"."attachments" < "attached_file"."__"
+
+Ref: "pre_quiz"."quiz_id" - "quizzes"."_id"
+
+Ref: "teacher"."owned_programs" < "owned_program_item"."__"
+
+Ref: "announcements"."attachments" < "attached_file2"."__"
+
+Ref: "users"."config" - "config"."theme"
+
+Ref: "chapters"."_id" < "lesson"."__"
+
+Ref: "courses"."_id" < "chapters"."_id"
+
+Ref: "course_progresses"."lessons" < "lesson_progress"."__"
+
+Ref: "student"."__" < "course_progresses"."_id"
+
+Ref: "tags"."__" <> "courses"."tags"
+
+Ref: "quizzes"."problems" < "problem"."__"
+
+Ref: "problem"."choice" - "choice"."__"
+
+Ref: "problem"."correct_answer" - "correct_answer"."__"
+
+Ref: "quizzes_result"."problems" < "problem_result"."__"
+
+Ref: "problem_result"."answer" - "answer_result"."__"
+
+Ref: "tags"."_id" <> "classes"."tags"
+
+Ref: "users"."payment_methods" < "payment_methods"."payment_method_id"
+
+Ref: "assignment_submissions"."attachments" < "attached_file"."__"
+
+Ref: "assignments"."_id" < "assignment_submissions"."_id"
+
+Ref: "classes"."schedules" - "schedule"."__"
+
+Ref: "threads"."_id" < "thread_replies"."__"
+
+Ref: "thread_replies"."user" - "replies_user"."__"
+
+Ref: "assignments"."_id" < "assignment_replies"."__"
+
+Ref: "assignment_replies"."user" - "replies_user"."__"

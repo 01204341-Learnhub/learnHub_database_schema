@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "6523ba7adbed00ca7151afa0"
+  },
+  "class_id": {
+    "$oid": "650af343ae18fbe3d31ab8eb"
+  },
+  "last_edit": {
+    "$date": "2023-06-28T00:02:00.000Z"
+  },
+  "name": "python chapter 1 ",
+  "teacher_id": {
+    "$oid": "64eb196e46a1d88ca45bd160"
+  },
+  "text": "this is doc for chapter 1 ",
+  "attachments": [
+    {
+      "attachment_type": "image",
+      "src": "https://placehold.co/600x400"
+    }
+  ]
+}]
